@@ -1,10 +1,8 @@
 <?php
-$consumerKey = ""; //Paste your consumer key here
-$consumerSecret = ""; //Paste your consumer secret here
+$consumerKey = "BJ755mGGZ6zcGJC7A45r5axhWiNZGbOZ";
+$consumerSecret = "oZtArzezixqzGH6A";
 $apiUrl = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
-$headers = [
-    'Content-Type:application/json; charset=utf8'
-    ];
+$headers = ['Content-Type:application/json; charset=utf8'];
 
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -19,4 +17,4 @@ $data = json_decode($tokenResponse);
 
 $accessToken = $data->access_token;
 
-echo "Access token is: ".$accessToken."<br>";   //make sure it returns the Access token
+// echo "Access token is: ".$accessToken."<br>";   
