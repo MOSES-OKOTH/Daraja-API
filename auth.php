@@ -1,20 +1,18 @@
 <?php
-$consumerKey = "BJ755mGGZ6zcGJC7A45r5axhWiNZGbOZ";
-$consumerSecret = "oZtArzezixqzGH6A";
-$apiUrl = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
+$consumerKey = "voHidHuYSFiyPsomrRLAkMgiBFGtGKPR";
+$consumerSecret = "D7scJI4Id1mA7uMG";
+
+$access_token_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 $headers = ['Content-Type:application/json; charset=utf8'];
+$curl = curl_init($access_token_url);
+curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($curl, CURLOPT_HEADER, FALSE);
+curl_setopt($curl, CURLOPT_USERPWD, $consumerKey . ':' . $consumerSecret);
+$result = curl_exec($curl);
+$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+$result = json_decode($result);
+$access_token = $result->access_token;
+curl_close($curl);
 
-$ch = curl_init($apiUrl);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_USERPWD, $consumerKey.":".$consumerSecret);
-
-$tokenResponse = curl_exec($ch);
-curl_close($ch);
-
-$data = json_decode($tokenResponse);
-
-$accessToken = $data->access_token;
-
-// echo "Access token is: ".$accessToken."<br>";   
+// echo "The access token is: ".$access_token;
