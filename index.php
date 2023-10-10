@@ -62,23 +62,54 @@ if(isset($_POST['phone']) && isset($_POST['amount'])){
   <title>ACE PAY | Mpesa</title>
 </head>
 <body>
+  <div id="notification">
+
+  </div>
+
   <section class='container'>
     <center>
       <div id='form'>
-        <form action="" method='POST'>
-          <h1>ACE PAY | Powered By Mpesa</h1>
-          <br>
+        <form class='grid' action="" method='POST'>
+          <div class="grid-1-1 title">
+            <h1>ACE PAY</h1>
+            <h4>| Powered By Mpesa</h4>
+            <h6>Made with love by <a href="https://github.com/MOSES-OKOTH">Moses Okoth</a></h6>
+          </div>
 
-          <p>Phone Number</p>
-          <input type="text" name='phone' placeholder="Phone number e.g 2547********" required> <br>
+          <div class="grid-1-2 main">
+            <p>Phone Number</p>
+            <p id='phone'>
+              <!-- <span>+254</span> -->
+              <input type="text" name='phone' placeholder="Phone number 2547********" required>
+            </p>
 
-          <p>Amount</p>
-          <input type="number" min='1' value='1' name='amount' placeholder="Enter the amount" required> <br> <br>
+            <p>Amount</p>
+            <input type="number" min='1' value='1' name='amount' placeholder="Enter the amount" required> <br> <br>
 
-          <button type='submit'>Pay Now</button>
+            <button type='submit' onclick="clicked()">Pay Now</button>
+          </div>
         </form>
       </div>
     </center>
   </section>
+
+  <script>
+    function clicked(){
+      let notification = document.getElementById('notification');
+
+      notification.style = "display: block;";
+
+      let myDiv = document.createElement('div');
+      myDiv.classList.add('notify');
+
+      myDiv.innerHTML = "<p>Enter your Mpesa PIN to compelete the payment";
+
+      notification.appendChild(myDiv);
+
+      window.setInterval(() => {
+        myDiv.style = "display: none;";
+      }, 5500);
+    }
+  </script>
 </body>
 </html>
