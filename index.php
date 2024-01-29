@@ -46,7 +46,7 @@ if(isset($_POST['phone']) && isset($_POST['amount'])){
   $CheckoutRequestID = $data->CheckoutRequestID;
   $ResponseCode = $data->ResponseCode;
   if ($ResponseCode == "0") {
-    echo "The CheckoutRequestID for this transaction is : " . $CheckoutRequestID;
+    // echo "The CheckoutRequestID for this transaction is : " . $CheckoutRequestID;
   } else{
     echo $ResponseCode."An error occured!";
   }
@@ -93,6 +93,10 @@ if(isset($_POST['phone']) && isset($_POST['amount'])){
     </center>
   </section>
 
+  <section class='footer'>
+    <p>&copy <span id='year'></span> Ace Softwares</p>
+  </section>
+
   <script>
     function clicked(){
       let notification = document.getElementById('notification');
@@ -110,6 +114,16 @@ if(isset($_POST['phone']) && isset($_POST['amount'])){
         myDiv.style = "display: none;";
       }, 5500);
     }
+
+    function getYear(){
+        let year = document.getElementById('year');
+        let now = new Date();
+        let year = now.getFullYear();
+
+        year.textContent = year;
+    }
+
+    getYear();
   </script>
 </body>
 </html>
