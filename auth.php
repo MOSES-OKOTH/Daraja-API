@@ -1,6 +1,6 @@
 <?php
-$consumerKey = "voHidHuYSFiyPsomrRLAkMgiBFGtGKPR";
-$consumerSecret = "D7scJI4Id1mA7uMG";
+$consumerKey = "uRc0n5uM3rK3Y"; //use your consumer key from Safaricom developers portal
+$consumerSecret = "y0uRc0n5uM3rS3cr3+"; //use your consumer secret from Safaricom developers portal
 
 $access_token_url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
 
