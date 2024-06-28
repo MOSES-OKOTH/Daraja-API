@@ -8,8 +8,8 @@ if(isset($_POST['phone']) && isset($_POST['amount'])){
   $Amount = $_POST['amount'];
 
   $processrequestUrl = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
-  $callbackurl = 'https://6c26-154-159-237-174.ngrok-free.app/Daraja-API/callback.php'; //get from ngrok
-  $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+  $callbackurl = 'https://6c26-154-159-237-174.ngrok-free.app/Daraja-API/callback.php'; //get from ngrok or any other tunnelling services
+  $passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"; //use the production passkey here
   $BusinessShortCode = '174379';
   $Timestamp = date('YmdHis');
 
